@@ -1,7 +1,7 @@
 {
-  "name": "license-extractor",
+  "name": "deps-license",
   "version": "0.1.2",
-  "description": "Extract license from used NPM dependencies",
+  "description": "Extract dependency licenses from NPM packages",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "bin": {
-    "license-extractor": "cli.js"
+    "deps-license": "cli.js"
   },
   "author": "Carl St-Laurent",
   "license": "MIT",
