@@ -1,0 +1,29 @@
+{
+  "name": "license-extractor",
+  "version": "0.1.1",
+  "description": "Extract license from used NPM dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "lint": "eslint"
+  },
+  "bin": {
+    "license-extractor": "cli.js"
+  },
+  "author": "Carl St-Laurent",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^20.0.4"
+  },
+  "dependencies": {
+    "yargs": "^8.0.1"
+  }
+}
