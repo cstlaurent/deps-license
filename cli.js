@@ -5,7 +5,7 @@ const argv = require('yargs')
 
 
 function runExtract () {
-  let projectPath = argv.p || '.'
+  let projectPath = argv.p || './'
   return extractor.extractLicenses(projectPath)
 }
 

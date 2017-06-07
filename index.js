@@ -4,7 +4,13 @@ const os = require('os')
 
 function extractPackageList (projectPath) {
   let projectJsonPath = path.join(projectPath, 'package.json')
-  let fileContent = fs.readFileSync(projectJsonPath)
+  let fileContent
+  try {
+    fileContent = fs.readFileSync(projectJsonPath)
+  } catch (error) {
+    console.log(`Project package.json not found at ${projectJsonPath}`)
+    return []
+  }
   let jsonContent = JSON.parse(fileContent)
   if (jsonContent && jsonContent.dependencies) {
     return Object.keys(jsonContent.dependencies)
@@ -18,7 +24,7 @@ function getLicenseForPackage (projectPath, packageName) {
   try {
     fileContent = fs.readFileSync(projectJsonPath)
   } catch (error) {
-    console.log('Requested file do not exist')
+    console.log(`3rd Party package.json file not found for ${packageName}`)
     return undefined
   }
   let jsonContent = JSON.parse(fileContent)
