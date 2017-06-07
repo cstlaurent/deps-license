@@ -47,7 +47,7 @@ function getLicenseForPackage (projectPath, packageName) {
   }
 }
 
-function printToCsv (licenses) {
+function printToCsvString (licenses) {
   let text = ''
   text += `Name,Description,Project URL,License${os.EOL}`
   licenses.forEach(function (l) {
@@ -57,18 +57,26 @@ function printToCsv (licenses) {
   return text
 }
 
+function writeCsvToFile (csvString, path) {
+  let filePath = 'deps-license.csv'
+  fs.writeFileSync(filePath, csvString)
+  return filePath
+}
+
 function extractLicenses (projectPath) {
   let packages = extractPackageList(projectPath)
   let licensesInfo = packages.map((p) => {
     return getLicenseForPackage(projectPath, p)
   })
 
-  return printToCsv(licensesInfo)
+  let text = printToCsvString(licensesInfo)
+  return writeCsvToFile(text)
 }
 
 module.exports = {
   extractPackageList,
   getLicenseForPackage,
-  printToCsv,
+  printToCsvString,
+  writeCsvToFile,
   extractLicenses
 }

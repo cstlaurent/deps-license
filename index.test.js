@@ -28,7 +28,7 @@ test('Get project license should return undefined when package do not exist', ()
 
 test('Print to CSV should output correct CSV string given 1 package license', () => {
   let versionInfo = {name: 'vue', description: 'desc', projectUrl: 'url', license: 'lic'}
-  let text = licenseExtractor.printToCsv([versionInfo])
+  let text = licenseExtractor.printToCsvString([versionInfo])
 
   let result = `Name,Description,Project URL,License${os.EOL}`
   result += `"vue","desc","url","lic"${os.EOL}`
@@ -39,9 +39,9 @@ test('Print to CSV should output correct CSV string given 1 package license', ()
 test('Extract licences should output proper csv given valid package.json file', () => {
   let text = licenseExtractor.extractLicenses('test-project')
 
-  let result = `Name,Description,Project URL,License${os.EOL}`
-  result += `"vue","Reactive, component-oriented view layer for modern web interfaces.","git+https://github.com/vuejs/vue.git","MIT"${os.EOL}`
-  result += `"vue-router","Official router for Vue.js 2","git+https://github.com/vuejs/vue-router.git","MIT"${os.EOL}`
+  // let result = `Name,Description,Project URL,License${os.EOL}`
+  // result += `"vue","Reactive, component-oriented view layer for modern web interfaces.","git+https://github.com/vuejs/vue.git","MIT"${os.EOL}`
+  // result += `"vue-router","Official router for Vue.js 2","git+https://github.com/vuejs/vue-router.git","MIT"${os.EOL}`
 
-  expect(text).toBe(result)
+  expect(text).toBe('deps-license.csv')
 })
