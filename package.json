@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "bin": {
-    "deps-license": "cli.js"
+    "deps-license": "./bin/deps-license"
   },
   "author": "Carl St-Laurent",
   "license": "MIT",
