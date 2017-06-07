@@ -25,5 +25,9 @@
   },
   "dependencies": {
     "yargs": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=7.6.0",
+    "npm": ">=4.0.0"
   }
 }
